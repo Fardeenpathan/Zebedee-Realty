@@ -1,0 +1,34 @@
+{
+  "tasks": [
+    {
+      "title": "Rewrite Hero & About with North Bangalore / Devanahalli positioning",
+      "status": "pending",
+      "priority": "high"
+    },
+    {
+      "title": "Update Footer & Nav with Zebedee Ventures descriptor",
+      "status": "pending",
+      "priority": "high"
+    },
+    {
+      "title": "Update address, hide social icons",
+      "status": "pending",
+      "priority": "high"
+    },
+    {
+      "title": "Add Institutional-Grade Execution & Asset Management services",
+      "status": "pending",
+      "priority": "high"
+    },
+    {
+      "title": "Update Serene Canterbury to multi-phase (Clubhouse + 100 villas)",
+      "status": "in_progress",
+      "priority": "high"
+    },
+    {
+      "title": "Verify all changes, typecheck & logs",
+      "status": "pending",
+      "priority": "medium"
+    }
+  ]
+}
