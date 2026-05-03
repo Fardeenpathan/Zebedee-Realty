@@ -25,6 +25,7 @@ export default function Navigation() {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
+    {name:'Canterbury castles', href: '#canterbury-castles'},
     { name: 'Serene Canterbury', href: '#serene-canterbury' },
     { name: 'About Us', href: '#about' },
     { name: 'Contact', href: '#contact' },
@@ -67,7 +68,7 @@ export default function Navigation() {
               key={link.name}
               href={link.href}
               className={cn(
-                'text-xs uppercase tracking-widest font-sans font-medium transition-colors hover:text-brand-gold whitespace-nowrap',
+                'text-xs uppercase tracking-widest font-sans font-medium transition-colors hover:white whitespace-nowrap',
                 isScrolled ? 'text-white/90' : 'text-white'
               )}
             >

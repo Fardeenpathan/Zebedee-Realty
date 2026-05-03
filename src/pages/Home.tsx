@@ -1,9 +1,17 @@
 import { motion } from 'framer-motion';
 import { Phone, CheckCircle2, PlayCircle, ChevronRight } from 'lucide-react';
-
+import { useState } from "react";
+import ClubhouseCarousel from "../components/ClubhouseCarousel";
+import Canterbury from "../components/Canterbury";
 const PHONE = '+919876543210'; // placeholder — update with real number
 const WA_LINK = `https://wa.me/${PHONE.replace('+', '')}`;
 const TEL_LINK = `tel:${PHONE}`;
+import { X } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
 
 const fadeUp: import('framer-motion').Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -14,7 +22,67 @@ const fadeUp: import('framer-motion').Variants = {
   }),
 };
 
+type GalleryItem = {
+  title: string;
+  thumbnail: string;
+  images: string[];
+};
+
+const galleries: GalleryItem[] = [
+  {
+    title: "Gallery 1",
+    thumbnail: "/assets/images/gallery1/thumb.jpg",
+    images: [
+      "/assets/images/gallery1/1.jpg",
+      "/assets/images/gallery1/2.jpg",
+      "/assets/images/gallery1/3.jpg",
+    ],
+  },
+  {
+    title: "Gallery 2",
+    thumbnail: "/assets/images/gallery2/thumb.jpg",
+    images: [
+      "/assets/images/gallery2/1.jpg",
+      "/assets/images/gallery2/2.jpg",
+      "/assets/images/gallery2/3.jpg",
+    ],
+  },
+  {
+    title: "Gallery 3",
+    thumbnail: "/assets/images/gallery3/thumb.jpg",
+    images: [
+      "/assets/images/gallery3/1.jpg",
+      "/assets/images/gallery3/2.jpg",
+    ],
+  },
+  {
+    title: "Gallery 4",
+    thumbnail: "/assets/images/gallery4/thumb.jpg",
+    images: [
+      "/assets/images/gallery4/1.jpg",
+      "/assets/images/gallery4/2.jpg",
+    ],
+  },
+];
+
 export default function Home() {
+
+  const videos = [
+    {
+      // label: "Project Overview — Serene Canterbury",
+      video: "/assets/Serene.mp4",
+      thumbnail: "/assets/Serene.jpg",
+    },
+    {
+      // label: "Canterbury Castles — Our Track Record",
+      video: "/assets/Canterbury.mp4",
+      thumbnail: "/assets/Canterbury.jpg",
+    },
+  ];
+
+  const [activeVideo, setActiveVideo] = useState(null);
+  const [activeGallery, setActiveGallery] = useState<GalleryItem | null>(null);
+
   return (
     <div className="flex flex-col min-h-screen">
 
@@ -22,17 +90,25 @@ export default function Home() {
           HERO
       ═══════════════════════════════════════════════════════ */}
       <section id="home" className="relative h-screen w-full flex items-end justify-start overflow-hidden bg-brand-green">
+        <div className="absolute inset-0 z-0 overflow-hidden">
 
-        {/* Video background */}
-        <div className="absolute inset-0 z-0">
+          {/* Animated Background Image */}
+          <motion.div
+            initial={{ scale: 1.1 }}
+            whileInView={{ scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "url('https://canterburycastles.com/plugins/this-project-plugin/media/home/landing.jpg')",
+            }}
+          />
+
+          {/* Overlay same rakho */}
           <div className="absolute inset-0 bg-brand-green/50 z-10" />
           <div className="absolute inset-0 bg-gradient-to-b from-brand-green/70 via-transparent to-brand-green/95 z-10" />
-          <video
-            autoPlay loop muted playsInline
-            preload="none"
-            className="w-full h-full object-cover"
-            src="https://cdn.wegic.ai/assets/onepage/agent/videos/01KMMFPS0T58CYG3XMC83X9NHN.webm"
-          />
+
         </div>
 
         {/* Hero content — bottom-left */}
@@ -64,7 +140,7 @@ export default function Home() {
             initial="hidden" animate="visible" custom={0.4} variants={fadeUp}
             className="text-white/70 font-light text-base md:text-lg max-w-2xl leading-relaxed mb-10"
           >
-            Partnering with Columbia Pacific Communities — Manipal Group, to deliver 100 luxury senior living villas
+            Partnering with Columbia Pacific Communities — Manipal Group, to deliver 100 senior living villas
             with the same precision and care found at Canterbury Castles.
           </motion.p>
 
@@ -97,11 +173,10 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* ═══════════════════════════════════════════════════════
           SERENE CANTERBURY — FLAGSHIP (first after hero)
       ═══════════════════════════════════════════════════════ */}
-      <section id="serene-canterbury" className="py-28 bg-brand-green">
+      <section id="canterbury-castles" className="py-28 bg-brand-green">
         <div className="container mx-auto px-8 md:px-16">
 
           {/* Section header */}
@@ -112,7 +187,7 @@ export default function Home() {
 
           <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white leading-tight max-w-2xl">
-              Serene Canterbury
+              Canterbury Castles
             </h2>
             <p className="text-white/50 font-sans font-light text-sm max-w-md leading-relaxed">
               The team behind Canterbury Castles is now executing Serene Canterbury — a 100-villa senior living community developed in partnership with Columbia Pacific Communities, Manipal Group.
@@ -124,8 +199,8 @@ export default function Home() {
             {[
               { label: 'Total Villas', value: '100 Units' },
               { label: 'Configurations', value: '1BHK · 2BHK · 3BHK · 4BHK' },
-              { label: 'Location', value: 'Devanahalli, North Bangalore' },
-              { label: 'Operator', value: 'Columbia Pacific Communities' },
+              { label: '', value: '' },
+
             ].map((stat, i) => (
               <div key={i} className="p-6 border-r border-b md:border-b-0 border-white/10 last:border-r-0">
                 <p className="text-brand-gold text-xs uppercase tracking-widest font-sans mb-2">{stat.label}</p>
@@ -134,22 +209,239 @@ export default function Home() {
             ))}
           </div>
 
-          {/* YouTube Video Placeholders */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            {[
-              { label: 'Project Overview — Serene Canterbury', sub: 'Coming soon · Add YouTube embed link' },
-              { label: 'Canterbury Castles — Our Track Record', sub: 'Coming soon · Add YouTube embed link' },
-            ].map((vid, i) => (
+            {videos.map((vid, i) => (
               <div
                 key={i}
-                className="relative aspect-video bg-white/5 border border-white/10 flex flex-col items-center justify-center group cursor-pointer hover:border-brand-gold/50 transition-colors duration-300"
+                className="relative aspect-video overflow-hidden border border-white/10 group"
               >
-                <PlayCircle size={52} className="text-brand-gold/50 group-hover:text-brand-gold transition-colors duration-300 mb-4" strokeWidth={1} />
-                <p className="text-white/70 font-heading text-base text-center px-6">{vid.label}</p>
-                <p className="text-white/30 font-sans text-xs mt-2 text-center">{vid.sub}</p>
+
+                {/* 👇 Thumbnail ONLY when video not active */}
+                {activeVideo !== i && (
+                  <>
+                    <img
+                      src={vid.thumbnail}
+                      alt="thumbnail"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition"></div>
+
+                    {/* Play Button */}
+                    <div
+                      onClick={() => setActiveVideo(i)}
+                      className="absolute inset-0 flex items-center justify-center cursor-pointer z-10"
+                    >
+                      <PlayCircle
+                        size={60}
+                        className="text-brand-gold/70 group-hover:text-brand-gold transition"
+                        strokeWidth={1}
+                      />
+                    </div>
+                  </>
+                )}
+
+                {/* 👇 Video ONLY when active */}
+                {activeVideo === i && (
+                  <video
+                    src={vid.video}
+                    controls
+                    autoPlay
+                    className="w-full h-full object-cover"
+                  />
+                )}
+
               </div>
             ))}
           </div>
+        </div>
+        <ClubhouseCarousel />
+
+
+        <section id="serene-canterbury" className="py-28 bg-brand-green">
+          <div className="container mx-auto px-8 md:px-16">
+
+            {/* Section header */}
+            <div className="flex items-center gap-3 mb-4">
+              <span className="h-px w-8 bg-brand-gold" />
+              <span className="text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold font-sans">Flagship Project</span>
+            </div>
+
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
+              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white leading-tight max-w-2xl">
+                Serene Canterbury
+              </h2>
+              <p className="text-white/50 font-sans font-light text-sm max-w-md leading-relaxed">
+                The team behind Canterbury Castles is now executing Serene Canterbury — a 100-villa senior living community developed in partnership with Columbia Pacific Communities, Manipal Group.
+              </p>
+            </div>
+
+            {/* Project Stats bar */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-white/10 mb-16">
+              {[
+                { label: 'Total Villas', value: '100 Units' },
+                { label: 'Configurations', value: '1BHK · 2BHK · 3BHK · 4BHK' },
+                { label: 'Location', value: 'Devanahalli, North Bangalore' },
+                { label: 'Operator', value: 'Columbia Pacific Communities' },
+              ].map((stat, i) => (
+                <div key={i} className="p-6 border-r border-b md:border-b-0 border-white/10 last:border-r-0">
+                  <p className="text-brand-gold text-xs uppercase tracking-widest font-sans mb-2">{stat.label}</p>
+                  <p className="text-white font-heading text-sm md:text-base">{stat.value}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+              {galleries.map((item, i) => (
+                <div
+                  key={i}
+                  onClick={() => setActiveGallery(item)}
+                  className="relative aspect-video overflow-hidden border border-white/10 group cursor-pointer"
+                >
+                  <img
+                    src={item.thumbnail}
+                    alt={item.title}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  />
+
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition" />
+
+                  <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+                    <p className="text-white text-xl font-heading">{item.title}</p>
+                    <p className="text-white/60 text-sm">Click to view gallery</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {activeGallery && (
+              <div className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
+                <button
+                  onClick={() => setActiveGallery(null)}
+                  className="absolute top-5 right-5 text-white z-50"
+                >
+                  <X size={34} />
+                </button>
+
+                <div className="w-full max-w-5xl">
+                  <h3 className="text-white text-2xl mb-5">{activeGallery.title}</h3>
+
+                  <Swiper
+                    modules={[Navigation]}
+                    navigation
+                    loop
+                    spaceBetween={20}
+                    slidesPerView={1}
+                  >
+                    {activeGallery.images.map((img, i) => (
+                      <SwiperSlide key={i}>
+                        <img
+                          src={img}
+                          alt={`${activeGallery.title} ${i + 1}`}
+                          className="w-full max-h-[75vh] object-contain"
+                        />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </div>
+              </div>
+            )}
+
+          </div>
+          <ClubhouseCarousel />
+          <div className="container mx-auto px-8 md:px-16">
+
+
+            {/* Construction Timeline */}
+            <div className="border border-white/10 p-8 md:p-12 mb-16">
+              <div className="flex items-center gap-3 mb-8">
+                <span className="h-px w-8 bg-brand-gold" />
+                <span className="text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold font-sans">Construction Timeline</span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-0 divide-y md:divide-y-0 md:divide-x divide-white/10">
+                {/* Phase 1 */}
+                <div className="pb-10 md:pb-0 md:pr-12">
+                  <div className="flex items-start gap-5">
+                    <div className="flex-shrink-0 w-10 h-10 bg-brand-gold flex items-center justify-center">
+                      <span className="font-heading text-brand-green text-lg font-bold">01</span>
+                    </div>
+                    <div>
+                      <div className="flex flex-wrap items-center gap-3 mb-3">
+                        <h3 className="font-heading text-white text-xl">The Clubhouse</h3>
+                        <span className="text-xs px-3 py-1 bg-brand-gold text-brand-green font-sans font-semibold uppercase tracking-widest">
+                          Under Construction
+                        </span>
+                      </div>
+                      <p className="text-white/50 font-sans font-light text-sm leading-relaxed mb-4">
+                        The community anchor — a landmark clubhouse establishing the social and wellness infrastructure for Serene Canterbury. Currently under active construction.
+                      </p>
+                      <ul className="space-y-2">
+                        {['Community Wellness Centre', 'Dining & Banquet Facilities', 'Landscaped Arrival Sequence', 'Managed Services Hub'].map((f) => (
+                          <li key={f} className="flex items-center gap-2 text-white/40 text-xs font-sans">
+                            <CheckCircle2 size={13} className="text-brand-gold flex-shrink-0" />
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Phase 2 */}
+                <div className="pt-10 md:pt-0 md:pl-12">
+                  <div className="flex items-start gap-5">
+                    <div className="flex-shrink-0 w-10 h-10 border border-white/20 flex items-center justify-center">
+                      <span className="font-heading text-white/50 text-lg">02</span>
+                    </div>
+                    <div>
+                      <div className="flex flex-wrap items-center gap-3 mb-3">
+                        <h3 className="font-heading text-white text-xl">100 Senior Living Villas</h3>
+                        <span className="text-xs px-3 py-1 border border-white/20 text-white/60 font-sans font-medium uppercase tracking-widest">
+                          Commencing Soon
+                        </span>
+                      </div>
+                      <p className="text-white/50 font-sans font-light text-sm leading-relaxed mb-4">
+                        1BHK, 2BHK, 3BHK, and 4BHK configurations across 100 premium senior living villas. 12-month delivery cycle from commencement.
+                      </p>
+                      <ul className="space-y-2">
+                        {['Accessibility-First Design', 'Wellness-Led Layouts', 'Premium Specifications', '12-Month Delivery Cycle'].map((f) => (
+                          <li key={f} className="flex items-center gap-2 text-white/40 text-xs font-sans">
+                            <CheckCircle2 size={13} className="text-white/20 flex-shrink-0" />
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="flex flex-wrap gap-4">
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-brand-gold text-brand-green font-sans font-medium uppercase tracking-widest text-sm hover:bg-white transition-colors duration-300"
+              >
+                <Phone size={15} /> Contact the Serene Canterbury Team
+              </a>
+              <a
+                href={TEL_LINK}
+                className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white font-sans font-light uppercase tracking-widest text-sm hover:border-brand-gold hover:text-brand-gold transition-colors duration-300"
+              >
+                <Phone size={15} /> Call Us Directly
+              </a>
+            </div>
+
+          </div>
+        </section>
+
+        <div className="container mx-auto px-8 md:px-16">
+
 
           {/* Construction Timeline */}
           <div className="border border-white/10 p-8 md:p-12 mb-16">
@@ -239,6 +531,9 @@ export default function Home() {
       </section>
 
 
+
+
+
       {/* ═══════════════════════════════════════════════════════
           WHO WE ARE
       ═══════════════════════════════════════════════════════ */}
@@ -262,7 +557,7 @@ export default function Home() {
                 A Bengaluru Construction Firm<br />You Can Trust.
               </h2>
               <p className="text-brand-green/70 font-sans font-light text-base leading-relaxed mb-6">
-                Zebedee Realty is a dedicated Bengaluru construction firm with a deep-rooted history in the North Bangalore corridor. Having successfully delivered bespoke homes at Canterbury Castles, we are now bringing our expertise in high-end residential execution to Serene Canterbury in partnership with Columbia Pacific Communities.
+                Zebedee Realty is a dedicated Bengaluru construction firm with a deep-rooted history in the North Bangalore corridor. Having successfully delivered bespoke homes at Canterbury Castles, we are now bringing our expertise in residential execution to Serene Canterbury in partnership with Columbia Pacific Communities.
               </p>
               <p className="text-brand-green/70 font-sans font-light text-base leading-relaxed mb-10">
                 We focus on one thing: <span className="font-medium text-brand-green">building homes that last.</span>
@@ -283,6 +578,7 @@ export default function Home() {
             </motion.div>
 
             {/* Right — image placeholder */}
+
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -291,20 +587,32 @@ export default function Home() {
               variants={fadeUp}
               className="relative aspect-[4/3] bg-brand-green/5 border border-brand-green/10 overflow-hidden"
             >
-              <img
-                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200"
-                alt="Canterbury Castles — completed project by Zebedee Realty"
+              <video
+                src="/assets/Bengaluru-Construction.mp4"
+                loop
+                muted
+                playsInline
                 className="w-full h-full object-cover"
-                loading="lazy"
               />
+
               <div className="absolute bottom-0 left-0 right-0 bg-brand-green/80 p-4">
-                <p className="text-brand-gold text-xs uppercase tracking-widest font-sans">Canterbury Castles · Completed Project · North Bangalore</p>
+                <p className="text-brand-gold text-xs uppercase tracking-widest font-sans">
+                  Canterbury Castles · Completed Project · North Bangalore
+                </p>
               </div>
             </motion.div>
 
           </div>
         </div>
       </section>
+
+      <Canterbury />
+
+
+
+
+
+
 
 
       {/* ═══════════════════════════════════════════════════════
