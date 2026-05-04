@@ -252,8 +252,8 @@ const [selectedVideo, setSelectedVideo] = useState(null);
           <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-white/10 mb-16">
             {[
               { label: 'Total Villas', value: '100 Units' },
-              { label: 'Configurations', value: '1BHK · 2BHK · 3BHK · 4BHK' },
-              { label: '', value: '' },
+              { label: 'Configurations', value: <>Holiday Homes <br/>⁠Resort <br/>⁠Residential Dwellings <br/>⁠Clubhouse</> },
+              
 
             ].map((stat, i) => (
               <div key={i} className="p-6 border-r border-b md:border-b-0 border-white/10 last:border-r-0">
