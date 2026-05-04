@@ -3,7 +3,7 @@ import { Phone, CheckCircle2, PlayCircle, ChevronRight } from 'lucide-react';
 import { useState } from "react";
 import ClubhouseCarousel from "../components/ClubhouseCarousel";
 import Canterbury from "../components/Canterbury";
-const PHONE = '+919876543210'; // placeholder — update with real number
+const PHONE = '+919606951864'; // placeholder — update with real number
 const WA_LINK = `https://wa.me/${PHONE.replace('+', '')}`;
 const TEL_LINK = `tel:${PHONE}`;
 import { X } from "lucide-react";
@@ -191,7 +191,7 @@ export default function Home() {
             className="flex flex-wrap gap-4"
           >
             <a
-              href="#serene-canterbury"
+              href="#serene canterbury"
               className="inline-flex items-center gap-2 px-8 py-4 bg-brand-gold text-brand-green font-sans font-medium uppercase tracking-widest text-sm hover:bg-white transition-colors duration-300"
             >
               View Serene Canterbury <ChevronRight size={16} />
@@ -217,7 +217,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════
           SERENE CANTERBURY — FLAGSHIP (first after hero)
       ═══════════════════════════════════════════════════════ */}
-      <section id="canterbury-castles" className="py-28 bg-brand-green">
+      <section id="canterbury castles" className="py-28 bg-brand-green">
         <div className="container mx-auto px-8 md:px-16">
 
           {/* Section header */}
@@ -300,7 +300,7 @@ export default function Home() {
         <ClubhouseCarousel />
 
 
-        <section id="serene-canterbury" className="py-28 bg-brand-green">
+        <section id="serene canterbury" className="py-28 bg-brand-green">
           <div className="container mx-auto px-8 md:px-16">
 
             {/* Section header */}
@@ -390,7 +390,7 @@ export default function Home() {
             )}
 
           </div>
-          <ClubhouseCarousel />
+        
 
         </section>
 
@@ -491,7 +491,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════
           WHO WE ARE
       ═══════════════════════════════════════════════════════ */}
-      <section id="about" className="py-28 bg-[#fdfdf9]">
+      <section id="about us" className="py-28 bg-[#fdfdf9]">
         <div className="container mx-auto px-8 md:px-16">
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

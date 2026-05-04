@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const PHONE = '+919876543210';
+const PHONE = '+919606951864';
 const WA_LINK = `https://wa.me/${PHONE.replace('+', '')}`;
 const TEL_LINK = `tel:${PHONE}`;
 
@@ -25,9 +25,9 @@ export default function Navigation() {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
-    {name:'Canterbury castles', href: '#canterbury-castles'},
-    { name: 'Serene Canterbury', href: '#serene-canterbury' },
-    { name: 'About Us', href: '#about' },
+    {name:'Canterbury castles', href: '#canterbury castles'},
+    { name: 'Serene Canterbury', href: '#serene canterbury' },
+    { name: 'About Us', href: '#about us' },
     { name: 'Contact', href: '#contact' },
   ];
 
