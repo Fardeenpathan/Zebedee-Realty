@@ -121,6 +121,19 @@ export default function Home() {
     },
   ];
 
+  const modelvideos = [
+  {
+    src: "/assets/Bengaluru-Construction.mp4",
+    thumbnail: "/assets/bengaluru-thumb1.jpg",
+  },
+  {
+    src: "/assets/Bengaluru-Construction2.mp4",
+    thumbnail: "/assets/bengaluru-thumb2.jpg",
+  },
+];
+
+const [selectedVideo, setSelectedVideo] = useState(null);
+
   const [activeVideo, setActiveVideo] = useState(null);
   const [activeGallery, setActiveGallery] = useState<GalleryItem | null>(null);
 
@@ -306,7 +319,7 @@ export default function Home() {
             {/* Section header */}
             <div className="flex items-center gap-3 mb-4">
               <span className="h-px w-8 bg-brand-gold" />
-              <span className="text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold font-sans">Flagship Project</span>
+              <span className="text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold font-sans">On going project</span>
             </div>
 
             <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
@@ -333,7 +346,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
               {galleries.map((item, i) => (
                 <div
                   key={i}
@@ -387,7 +400,83 @@ export default function Home() {
                   </Swiper>
                 </div>
               </div>
-            )}
+            )} */}
+
+            
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+  {galleries.map((item, i) => (
+    <div
+      key={i}
+      onClick={() => setActiveGallery(item)}
+      className="group cursor-pointer overflow-hidden"
+    >
+      {/* Image */}
+      <div className="relative aspect-video overflow-hidden border-[3px] border-[#CBA052]">
+        
+        <img
+          src={item.thumbnail}
+          alt={item.title}
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition" />
+
+        {/* Title on Image */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
+          <p className="text-white text-xl font-heading">
+            {item.title}
+          </p>
+        </div>
+      </div>
+
+      {/* Bottom Text */}
+      <div className="py-2 px-4 bg-white">
+        <p className="text-black text-sm">
+          Click to view gallery
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
+
+{activeGallery && (
+  <div className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
+    <button
+      onClick={() => setActiveGallery(null)}
+      className="absolute top-5 right-5 text-white z-50"
+    >
+      <X size={34} />
+    </button>
+
+    <div className="w-full max-w-5xl">
+      <h3 className="text-white text-2xl mb-5">
+        {activeGallery.title}
+      </h3>
+
+      <Swiper
+        modules={[Navigation]}
+        navigation
+        loop
+        spaceBetween={20}
+        slidesPerView={1}
+      >
+        {activeGallery.images.map((img, i) => (
+          <SwiperSlide key={i}>
+            <img
+              src={img}
+              alt={`${activeGallery.title} ${i + 1}`}
+              className="w-full max-h-[75vh] object-contain"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  </div>
+)}
+
+
+
 
           </div>
         
@@ -508,7 +597,7 @@ export default function Home() {
                 <span className="text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold font-sans">Who We Are</span>
               </div>
               <h2 className="font-heading text-4xl md:text-5xl text-brand-green leading-tight mb-8">
-                A Bengaluru Construction Firm<br />You Can Trust.
+                A Bengaluru Construction<br /> Firm You Can Trust.
               </h2>
               <p className="text-brand-green/70 font-sans font-light text-base leading-relaxed mb-6">
                 Zebedee Realty is a dedicated Bengaluru construction firm with a deep-rooted history in the North Bangalore corridor. Having successfully delivered bespoke homes at Canterbury Castles, we are now bringing our expertise in residential execution to Serene Canterbury in partnership with Columbia Pacific Communities.
@@ -532,30 +621,67 @@ export default function Home() {
             </motion.div>
 
             {/* Right — image placeholder */}
+     
 
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-              custom={0.15}
-              variants={fadeUp}
-              className="relative aspect-[4/3] bg-brand-green/5 border border-brand-green/10 overflow-hidden"
-            >
-              <video
-                src="/assets/Bengaluru-Construction.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-              />
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, margin: "-80px" }}
+  custom={0.15}
+  variants={fadeUp}
+  className="grid grid-cols-2 gap-3"
+>
+  {modelvideos.map((vid, index) => (
+    <div
+      key={index}
+      className="relative aspect-[4/3] bg-black border border-brand-green/10 overflow-hidden cursor-pointer group"
+      onClick={() => setSelectedVideo(vid.src)}
+    >
+      <img
+        src={vid.thumbnail}
+        alt="video thumbnail"
+        className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+      />
 
-              <div className="absolute bottom-0 left-0 right-0 bg-brand-green/80 p-4">
-                <p className="text-brand-gold text-xs uppercase tracking-widest font-sans">
-                  Canterbury Castles · Completed Project · North Bangalore
-                </p>
-              </div>
-            </motion.div>
+      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition" />
+
+      <div className="absolute inset-0 flex items-center justify-center">
+        <PlayCircle
+          size={58}
+          className="text-brand-gold/90 group-hover:scale-110 transition duration-300"
+        />
+      </div>
+    </div>
+  ))}
+
+  <div className="col-span-2 bg-brand-green/90 px-4 py-3">
+    <p className="text-brand-gold text-xs uppercase tracking-widest font-sans">
+      CANTERBURY CASTLES · COMPLETED PROJECT
+    </p>
+  </div>
+</motion.div>
+
+{selectedVideo && (
+  <div className="fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center px-4">
+    <button
+      type="button"
+      onClick={() => setSelectedVideo(null)}
+      className="absolute top-5 right-5 text-white hover:text-brand-gold transition"
+    >
+      <X size={34} />
+    </button>
+
+    <div className="w-full max-w-5xl aspect-video bg-black">
+      <video
+        src={selectedVideo}
+        controls
+        autoPlay
+        playsInline
+        className="w-full h-full object-contain"
+      />
+    </div>
+  </div>
+)}
 
           </div>
         </div>

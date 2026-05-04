@@ -18,25 +18,37 @@ export default function Canterbury() {
     "/assets/canterbury/1 (4).jpg",
     "/assets/canterbury/1 (5).jpg",
     "/assets/canterbury/1 (6).jpg",
-    "/assets/canterbury/1 (7).jpg",
-    "/assets/canterbury/2 (1).jpg",
     "/assets/canterbury/2 (2).jpg",
     "/assets/canterbury/2 (3).jpg",
     "/assets/canterbury/2 (4).jpg",
-    "/assets/canterbury/2 (5).jpg",
     "/assets/canterbury/2 (6).jpg",
     "/assets/canterbury/3 (1).jpg",
     "/assets/canterbury/3 (2).jpg",
     "/assets/canterbury/3 (3).jpg",
     "/assets/canterbury/3 (4).jpg",
     "/assets/canterbury/3 (5).jpg",
-
+    "/assets/canterbury/ecosystem (1).jpg",
+    "/assets/canterbury/ecosystem (2).jpg",
+     "/assets/canterbury/ecosystem (1).png",
+    "/assets/canterbury/ecosystem (2).png",
+    "/assets/canterbury/ecosystem (3).png",
+    "/assets/canterbury/ecosystem (4).png",
+    "/assets/canterbury/ecosystem (5).png",
+    "/assets/canterbury/ecosystem (6).png",
+    "/assets/canterbury/ecosystem (7).png",
+    "/assets/canterbury/ecosystem (8).png",
+    "/assets/canterbury/ecosystem (9).png",
+    "/assets/canterbury/ecosystem (10).png",
+    "/assets/canterbury/ecosystem (11).png",
+    "/assets/canterbury/ecosystem (12).png",
+    "/assets/canterbury/ecosystem (13).png",
+"/assets/canterbury/ecosystem (14).png",
   ];
 
   return (
     <section className="bg-[#f3f3f3] py-14 relative">
       <h2 className="text-center text-4xl md:text-5xl font-heading text-[#0d1728] mb-10">
-        Complete projects within <br /> canterbury Ecosystem
+        Complete projects within <br /> Canterbury Ecosystem
       </h2>
 
       <div className="relative">
