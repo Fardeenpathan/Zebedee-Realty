@@ -12,20 +12,25 @@ export default function Canterbury() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const images = [
-    "/assets/clubhouse/1.jpg",
-    "/assets/clubhouse/2.jpg",
-    "/assets/clubhouse/3.jpg",
-    "/assets/clubhouse/4.jpg",
-    "/assets/clubhouse/5.jpg",
-    "/assets/clubhouse/6.jpg",
-    "/assets/clubhouse/7.jpg",
-    "/assets/clubhouse/8.jpg",
-    "/assets/clubhouse/9.jpg",
-    "/assets/clubhouse/10.jpg",
-    "/assets/clubhouse/11.jpg",
-    "/assets/clubhouse/12.jpg",
-    "/assets/clubhouse/13.jpg",
-    "/assets/clubhouse/14.jpg",
+    "/assets/canterbury/1 (1).jpg",
+    "/assets/canterbury/1 (2).jpg",
+    "/assets/canterbury/1 (3).jpg",
+    "/assets/canterbury/1 (4).jpg",
+    "/assets/canterbury/1 (5).jpg",
+    "/assets/canterbury/1 (6).jpg",
+    "/assets/canterbury/1 (7).jpg",
+    "/assets/canterbury/2 (1).jpg",
+    "/assets/canterbury/2 (2).jpg",
+    "/assets/canterbury/2 (3).jpg",
+    "/assets/canterbury/2 (4).jpg",
+    "/assets/canterbury/2 (5).jpg",
+    "/assets/canterbury/2 (6).jpg",
+    "/assets/canterbury/3 (1).jpg",
+    "/assets/canterbury/3 (2).jpg",
+    "/assets/canterbury/3 (3).jpg",
+    "/assets/canterbury/3 (4).jpg",
+    "/assets/canterbury/3 (5).jpg",
+
   ];
 
   return (

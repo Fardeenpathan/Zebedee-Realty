@@ -30,37 +30,78 @@ type GalleryItem = {
 
 const galleries: GalleryItem[] = [
   {
-    title: "Gallery 1",
-    thumbnail: "/assets/images/gallery1/thumb.jpg",
+    title: "1 BHK",
+    thumbnail:  "/assets/gallery/1b(2).jpg",
     images: [
-      "/assets/images/gallery1/1.jpg",
-      "/assets/images/gallery1/2.jpg",
-      "/assets/images/gallery1/3.jpg",
+      "/assets/gallery/1b(1).jpg",
+      "/assets/gallery/DCSS_1BHK_1B_1.jpg",
+      "/assets/gallery/DCSS_1BHK_1B_2.jpg",
+      "/assets/gallery/DCSS_1BHK_1B_3.jpg",
+      "/assets/gallery/DCSS_1BHK_1B_4.jpg",
+      "/assets/gallery/DCSS_1BHK_1B_5.jpg",
+      "/assets/gallery/DCSS_1BHK_1B_6.jpg",
+      "/assets/gallery/DCSS_SERENE_1BHK_TYPE 1A_ (1).jpg",
+      "/assets/gallery/DCSS_SERENE_1BHK_TYPE 1A_ (2).jpg",
+      "/assets/gallery/DCSS_SERENE_1BHK_TYPE 1A_ (3).jpg",
+      "/assets/gallery/DCSS_SERENE_1BHK_TYPE 1A_ (4).jpg",
+      "/assets/gallery/DCSS_SERENE_1BHK_TYPE 1A_ (5).jpg",
+      "/assets/gallery/DCSS_SERENE_1BHK_TYPE 1A_ (6).jpg",
+      "/assets/gallery/DCSS_SERENE_1BHK_TYPE 1A_ (7).jpg",
     ],
   },
   {
-    title: "Gallery 2",
-    thumbnail: "/assets/images/gallery2/thumb.jpg",
+    title: "2 BHK",
+    thumbnail:  "/assets/gallery/2b(1).jpg",
     images: [
-      "/assets/images/gallery2/1.jpg",
-      "/assets/images/gallery2/2.jpg",
-      "/assets/images/gallery2/3.jpg",
+      "/assets/gallery/2b(2).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (1).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (2).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (3).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (4).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (5).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (6).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (7).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (8).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (10).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (11).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (12).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (13).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (14).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (15).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (16).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (17).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (18).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (19).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (20).jpg",
+      "/assets/gallery/DCSS_SERENCE_2BHK_EAST FACING_ (21).jpg",
+
     ],
   },
   {
-    title: "Gallery 3",
-    thumbnail: "/assets/images/gallery3/thumb.jpg",
+    title: "3 BHK",
+    thumbnail:  "/assets/gallery/3b(1).jpg",
     images: [
-      "/assets/images/gallery3/1.jpg",
-      "/assets/images/gallery3/2.jpg",
+       "/assets/gallery/3bhk(1).jpg",
+       "/assets/gallery/3bhk(2).jpg",
+       "/assets/gallery/3bhk(3).jpg",
+       "/assets/gallery/3bhk(4).jpg",
+       "/assets/gallery/3bhk(5).jpg",
+
     ],
   },
   {
-    title: "Gallery 4",
-    thumbnail: "/assets/images/gallery4/thumb.jpg",
+    title: "4 BHK",
+    thumbnail:"/assets/gallery/4b(1).jpg",
     images: [
-      "/assets/images/gallery4/1.jpg",
-      "/assets/images/gallery4/2.jpg",
+      
+"/assets/gallery/DCSS_SERENE_4BHK_ (1).jpg",
+"/assets/gallery/DCSS_SERENE_4BHK_ (2).jpg",
+"/assets/gallery/DCSS_SERENE_4BHK_ (3).jpg",
+"/assets/gallery/DCSS_SERENE_4BHK_ (4).jpg",
+"/assets/gallery/DCSS_SERENE_4BHK_ (5).jpg",
+"/assets/gallery/DCSS_SERENE_4BHK_ (6).jpg",
+"/assets/gallery/DCSS_SERENE_4BHK_ (7).jpg",
+"/assets/gallery/DCSS_SERENE_4BHK_ (8).jpg",
     ],
   },
 ];
@@ -350,94 +391,7 @@ export default function Home() {
 
           </div>
           <ClubhouseCarousel />
-          <div className="container mx-auto px-8 md:px-16">
 
-
-            {/* Construction Timeline */}
-            <div className="border border-white/10 p-8 md:p-12 mb-16">
-              <div className="flex items-center gap-3 mb-8">
-                <span className="h-px w-8 bg-brand-gold" />
-                <span className="text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold font-sans">Construction Timeline</span>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-0 divide-y md:divide-y-0 md:divide-x divide-white/10">
-                {/* Phase 1 */}
-                <div className="pb-10 md:pb-0 md:pr-12">
-                  <div className="flex items-start gap-5">
-                    <div className="flex-shrink-0 w-10 h-10 bg-brand-gold flex items-center justify-center">
-                      <span className="font-heading text-brand-green text-lg font-bold">01</span>
-                    </div>
-                    <div>
-                      <div className="flex flex-wrap items-center gap-3 mb-3">
-                        <h3 className="font-heading text-white text-xl">The Clubhouse</h3>
-                        <span className="text-xs px-3 py-1 bg-brand-gold text-brand-green font-sans font-semibold uppercase tracking-widest">
-                          Under Construction
-                        </span>
-                      </div>
-                      <p className="text-white/50 font-sans font-light text-sm leading-relaxed mb-4">
-                        The community anchor — a landmark clubhouse establishing the social and wellness infrastructure for Serene Canterbury. Currently under active construction.
-                      </p>
-                      <ul className="space-y-2">
-                        {['Community Wellness Centre', 'Dining & Banquet Facilities', 'Landscaped Arrival Sequence', 'Managed Services Hub'].map((f) => (
-                          <li key={f} className="flex items-center gap-2 text-white/40 text-xs font-sans">
-                            <CheckCircle2 size={13} className="text-brand-gold flex-shrink-0" />
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Phase 2 */}
-                <div className="pt-10 md:pt-0 md:pl-12">
-                  <div className="flex items-start gap-5">
-                    <div className="flex-shrink-0 w-10 h-10 border border-white/20 flex items-center justify-center">
-                      <span className="font-heading text-white/50 text-lg">02</span>
-                    </div>
-                    <div>
-                      <div className="flex flex-wrap items-center gap-3 mb-3">
-                        <h3 className="font-heading text-white text-xl">100 Senior Living Villas</h3>
-                        <span className="text-xs px-3 py-1 border border-white/20 text-white/60 font-sans font-medium uppercase tracking-widest">
-                          Commencing Soon
-                        </span>
-                      </div>
-                      <p className="text-white/50 font-sans font-light text-sm leading-relaxed mb-4">
-                        1BHK, 2BHK, 3BHK, and 4BHK configurations across 100 premium senior living villas. 12-month delivery cycle from commencement.
-                      </p>
-                      <ul className="space-y-2">
-                        {['Accessibility-First Design', 'Wellness-Led Layouts', 'Premium Specifications', '12-Month Delivery Cycle'].map((f) => (
-                          <li key={f} className="flex items-center gap-2 text-white/40 text-xs font-sans">
-                            <CheckCircle2 size={13} className="text-white/20 flex-shrink-0" />
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA */}
-            <div className="flex flex-wrap gap-4">
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-brand-gold text-brand-green font-sans font-medium uppercase tracking-widest text-sm hover:bg-white transition-colors duration-300"
-              >
-                <Phone size={15} /> Contact the Serene Canterbury Team
-              </a>
-              <a
-                href={TEL_LINK}
-                className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white font-sans font-light uppercase tracking-widest text-sm hover:border-brand-gold hover:text-brand-gold transition-colors duration-300"
-              >
-                <Phone size={15} /> Call Us Directly
-              </a>
-            </div>
-
-          </div>
         </section>
 
         <div className="container mx-auto px-8 md:px-16">
@@ -589,6 +543,7 @@ export default function Home() {
             >
               <video
                 src="/assets/Bengaluru-Construction.mp4"
+                autoPlay
                 loop
                 muted
                 playsInline
